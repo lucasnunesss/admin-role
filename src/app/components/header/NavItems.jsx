@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import RightSide from "./RightSide"
 
 
 const headerLinks = [
@@ -86,7 +87,7 @@ const NavItems = ({session}) => {
             {link.label}
             </Link>
           ))}
-          {/* <RightSide session={session} /> */}
+           <RightSide session={session} /> 
         </div>
 
       </div>
