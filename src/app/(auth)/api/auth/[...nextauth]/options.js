@@ -12,7 +12,21 @@ export const options = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET
+      clientSecret: process.env.GOOGLE_SECRET,
+      profile(profile){
+        let user = 'normal';
+
+        if(profile.email === process.env.MY_EMAIL){
+            user = 'admin'
+        }
+
+        return {
+          ...profile,
+          id: profile.sub,
+          image: profile.picture,
+          roles: user
+        }
+      }
     })
   ],
   pages: {
